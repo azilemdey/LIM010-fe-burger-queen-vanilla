@@ -115,7 +115,7 @@ En otras palabras, seguirás afianzando todo lo aprendido hasta el momento, pero
 
 ## Consideraciones
 
-Este proyecto se debe "resolver" de a pares.
+Este proyecto se debe "resolver" en tríos.
 
 Trabaja en una historia hasta terminarla antes de pasar a la siguiente. Trabaja
 hasta la historia que puedas en el tiempo especificado.
