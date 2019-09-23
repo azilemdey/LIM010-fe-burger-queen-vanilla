@@ -124,7 +124,8 @@ La lógica del proyecto debe estar implementada completamente en JavaScript
 La aplicación debe ser un _Single Page App_, por lo cual deberas de implementar un sistema de rutas.
 Los pedidos los tomaremos desde una
 _tablet_, pero **no queremos una app nativa**, sino una web app que sea
-**responsive**.
+**responsive**, por lo cual te recomendamos utilizar [`flexbox`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+para posicionar tus elementos.
 
 Necesitamos pensar bien en el aspecto UX de de quienes van a tomar los pedidos,
  el tamaño y aspecto de los botones, la visibilidad del estado actual del
@@ -210,4 +211,18 @@ rápidamente a los clientes que las hicieron.
 
 ## Pistas / Tips
 
-
+* [Firestore](https://firebase.google.com/docs/firestore)
+* [`flexbox`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [*sass*](https://sass-lang.com/)
+* [Modulos: Export](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/export)
+* [Modulos: Import](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/import)
+* [Testing Firebase con mock - video](https://www.youtube.com/watch?v=06myVn41OTY&t=1s)
+* [Testing Firebase con mock - repositorio](https://github.com/Danielalab/2018-2-Testing)
+* [Pill SPA - video](https://www.loom.com/share/fa63a8ad0e9a43428222c15b6f6613d3)
+* [Pill SPA - repositorio](https://github.com/betsyvies/bootcamp-spa)
+* [Pill MVC - repositorio](https://github.com/merunga/todomvc-vanillajs)
+* [Diseño web, responsive design y la importancia del mobile first - Media Click](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
+* [Mobile First: el enfoque actual del diseño web móvil - 1and1](https://www.1and1.es/digitalguide/paginas-web/diseno-web/mobile-first-la-nueva-tendencia-del-diseno-web/)
+* [Mobile First - desarrolloweb.com](https://desarrolloweb.com/articulos/mobile-first-responsive.html)
+* [Mobile First - ZURB](https://zurb.com/word/mobile-first)
+* [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
