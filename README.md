@@ -68,7 +68,7 @@ costo total.
 
 ## Objetivos de aprendizaje
 
-El objetivo de este proyecto es construir una Single-Page Application (SPA), responsiva en la que podamos escribir, leer, actualizar y eliminar datos.
+El objetivo de este proyecto es construir una Single-Page Application [SPA](https://dzone.com/articles/how-single-page-web-applications-actually-work) ([versión traducida](https://dzone.com/articles/how-single-page-web-applications-actually-work)), responsiva en la que podamos escribir, leer, actualizar y eliminar datos.
 
 Para ello deberás poner en juego tu creatividad para generar ideas que lleven a una solución original y valiosa del problema, trabajando en equipo buscando feedback constante.
 
@@ -82,6 +82,7 @@ En otras palabras, seguirás afianzando todo lo aprendido hasta el momento, pero
 
 ### DOM y Web APIs
 - [ ] Manipulación dinámica del DOM
+- [ ] Data attributes
 - [ ] History API
 
 ### Javascript
@@ -93,6 +94,7 @@ En otras palabras, seguirás afianzando todo lo aprendido hasta el momento, pero
 - [ ] Firestore
 - [ ] Firebase Auth
 - [ ] Observables
+- [ ] Firebase security rules
 
 ### Testing
 - [ ] Testeo de tus funciones
@@ -179,7 +181,7 @@ que un pedido está listo para servirlo a un cliente.
 
 ##### Criterios de aceptación
   * Ver los pedidos ordenados según se van haciendo.
-  * Marcar los pedidos que se han preparado y están listos para servirse.
+  * Marcar los pedidos que se han preparado y están listos para servirse (actualizar estado en la base de datos).
   * Ver el tiempo que tomó prepara el pedido desde que llegó hasta que se
   marcó como completado.
 
@@ -196,8 +198,46 @@ Yo como meserx quiero ver los pedidos que están preparados para entregarlos
 rápidamente a los clientes que las hicieron.
 
 ##### Criterios de aceptación
-  * Ver listado de pedido listos para servir.
+  * Ver listado de pedido listos para servir (actualizar estado en la base de datos).
   * Marcar pedidos que han sido entregados.
+
+##### Definición de terminado
+  * Debes haber recibido _code review_ de al menos una compañera.
+  * Haces _test_ unitarios y, además, has testeado tu producto manualmente.
+  * Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
+  * Desplegaste tu aplicación y has etiquetado tu versión (git tag).
+  * Los datos se deben mantener íntegros, incluso después de que un pedido ha
+  terminado. Todo esto para poder tener estadísticas en el futuro.
+
+---------------------
+#### [Historia de usuario 4] Mesero/a debe poder ingresar al sistema, si el admin ya le ha asignado credenciales
+Yo como meserx quiero poder ingresar al sistema de pedidos.
+
+##### Criterios de aceptación
+Lo que debe ocurrir para que se satisfagan las necesidades del usuario.
+  * Acceder a una pantalla de login.
+  * Ingresar email y contraseña.
+  * Recibir mensajes de error comprensibles, dependiendo de cuál es el error con la información ingresada.
+  * Ingresar al sistema de pedidos si las crendenciales son correctas.
+
+##### Definición de terminado
+Lo acordado que debe ocurrir para decir que la historia está terminada.
+  * Debes haber recibido _code review_ de al menos una compañera.
+  * Haces _test_ unitarios y, además, has testeado tu producto manualmente.
+  * Hiciste _tests_ de usabilidad e incorporaste el _feedback_ del usuario.
+  * Desplegaste tu aplicación y has etiquetado tu versión (git tag).
+
+---------------------
+
+#### [Historia de usuario 5] Administrador(a) de tienda debe administrar a sus trabajadorxs
+Yo como administrador(a) de tienda quiero gestionar a los usuarios de 
+la plataforma para mantener actualizado la informacion de mis trabajadorxs.
+
+##### Criterios de aceptación
+  * Ver listado de trabajadorxs.
+  * Agregar trabajadorxs.
+  * Eliminar trabajadoxs.
+  * Actualizar datos de trabajadorxs.
 
 ##### Definición de terminado
   * Debes haber recibido _code review_ de al menos una compañera.
