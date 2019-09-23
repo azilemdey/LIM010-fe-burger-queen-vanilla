@@ -2,25 +2,9 @@
 
 ## Preámbulo
 
-[React](https://reactjs.org/) y [Angular](https://angular.io/)
-son algunos de los _frameworks_ y _librerías_ de JavaScript más utilizados por
-lxs desarrolladorxs alrededor del mundo, y hay una razón para eso.
-En el contexto del navegador, [_mantener la interfaz sincronizada con el estado
-es difícil_](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445).
-Al elegir un _framework_ o _librería_ para nuestra interfaz, nos apoyamos en una
-serie de convenciones e implementaciones _probadas_ y _documentadas_ para
-resolver un problema común a toda interfaz web. Esto nos permite concentrarnos
-mejor (dedicar más tiempo) en las características _específicas_ de
-nuestra aplicación.
+La tecnologia poco a poco ha invadido nuestras vidas desde la forma en la que nos comunicamos con nuestro entorno hasta sectores como la medicina, educacion, comida, etc... Asi que la era digital ha llegado para quedarse y los negocios no quieren quedarse fuera de esta tranformacion.
 
-Cuando elegimos una de estas tecnologías no solo importamos un pedacito de
-código para reusarlo (lo cuál es un gran valor per se), si no que adoptamos una
-**arquitectura**, una serie de **principios de diseño**, un **paradigma**, unas
-**abstracciones**, un **vocabulario**, una **comunidad**, etc...
-
-Como desarrolladora Front-end, estos kits de desarrollo pueden resultarte
-de gran ayuda para implementar rápidamente características de los proyectos en
-los que trabajes.
+Hoy en dia se emplea la tecnologia para desarrollar software que ayude a automatizar y agilizar procesos para mejorar la experiencia de sus usuarios, este el caso de Burger Queen un negocio de comida rapida que desea mejorar el proceso de realizar pedidos de sus clientes para brindar una mejor experiencia tanto a sus colaboradores como a sus clientes.
 
 ## Resumen del proyecto
 
@@ -84,25 +68,48 @@ costo total.
 
 ## Objetivos de aprendizaje
 
-1. El objetivo principal de es aprender a construir una _interfaz web_ usando
-el _framework_ elegido (React o Angular) o vanilla JS. Todos estos frameworks de
-Front-end atacan el mismo problema: **cómo mantener la interfaz y el estado
-sincronizados**. Así que esta experiencia espera familiarizarte con el concepto
-de _estado de pantalla_, y cómo cada cambio sobre el estado se va a
-ir reflejando en la interfaz (por ejemplo, cada vez que agregamos un _producto_
-a un _pedido_, la interfaz debe actualizar la lista del pedido y el total).
+El objetivo de este proyecto es construir una Single-Page Application (SPA), responsiva en la que podamos escribir, leer, actualizar y eliminar datos.
 
-2. Como objetivo secundario, deberás seguir las recomendaciones para PWAs
-(_Progressive Web Apps_), lo cual incluye conceptos como **offline**. Para
-guiarte con respecto a este tema te recomendamos usar [Lighthouse](https://developers.google.com/web/tools/lighthouse/?hl=es),
-que es una herramienta de Google que nos ayuda a asegurar que nuestras web apps
-sigan "buenas prácticas". De hecho, usaremos Lighthouse a la hora de evaluar el
-proyecto.
+Para ello deberás poner en juego tu creatividad para generar ideas que lleven a una solución original y valiosa del problema, trabajando en equipo buscando feedback constante.
 
-3. Finalmente, la interfaz debe estar diseñada específicamente para correr en
-**tablets**.
+En otras palabras, seguirás afianzando todo lo aprendido hasta el momento, pero en particular verás:
 
-Tópicos: _react_, _angular_, _pwa_, _offline-first_, _service-worker_.
+### HTML y CSS
+- [ ] HTML semántico
+- [ ] CSS `flexbox`
+- [ ] Sass
+- [ ] Maquetación
+
+### DOM y Web APIs
+- [ ] Manipulación dinámica del DOM
+- [ ] History API
+
+### Javascript
+- [ ] Uso de callbacks
+- [ ] Consumo de Promesas
+- [ ] ES modules
+
+### Firebase
+- [ ] Firestore
+- [ ] Firebase Auth
+- [ ] Observables
+
+### Testing
+- [ ] Testeo de tus funciones
+- [ ] Testeo asíncrono
+- [ ] Mocking
+
+### Git y Github
+- [ ] Colaboración en Github
+- [ ] Organización en Github
+
+### Buenas prácticas de desarrollo
+- [ ] Modularización
+- [ ] Componentes
+- [ ] Nomenclatura / Semántica
+- [ ] Linting
+
+***
 
 ## Consideraciones
 
@@ -112,34 +119,25 @@ Trabaja en una historia hasta terminarla antes de pasar a la siguiente. Trabaja
 hasta la historia que puedas en el tiempo especificado.
 
 La lógica del proyecto debe estar implementada completamente en JavaScript
-(ES6+), HTML y CSS y empaquetada de manera automatizada.
-En este proyecto Sí está permitido usar librerías o frameworks
-(debes elegir entre [React](https://reactjs.org/),
-[Angular](https://angular.io/) o Vanilla Js).
+(ES6+), HTML y CSS.
 
-La aplicación debe ser un _Single Page App_. Los pedidos los tomaremos desde una
+La aplicación debe ser un _Single Page App_, por lo cual deberas de implementar un sistema de rutas.
+Los pedidos los tomaremos desde una
 _tablet_, pero **no queremos una app nativa**, sino una web app que sea
-**responsive** y pueda funcionar **offline**.
+**responsive**.
 
 Necesitamos pensar bien en el aspecto UX de de quienes van a tomar los pedidos,
  el tamaño y aspecto de los botones, la visibilidad del estado actual del
  pedido, etc.
 
-La aplicación desplegada debe tener 80% o más el las puntuaciones de
-Performance, Progressive Web App, Accessibility y Best Practices de Lighthouse.
-
 Deberas de guardar la información de los pedidos realizados por
 lo cual te reocmendamos utilizar [Firebase](https://firebase.google.com/).
-
-La aplicación debe hacer uso de `npm-scripts` y contar con scripts `start`,
-`test`, `build` y `deploy`, que se encarguen de arrancar, correr las pruebas,
-empaquetar y desplegar la aplicación respectivamente.
 
 Los tests unitarios deben cubrir un mínimo del 90% de _statements_, _functions_,
 _lines_ y _branches_.
 
 Por otro lado, deberás definir la estructura de carpetas y archivos que consideres
-necesaria. Puedes guiarte de las convenciones del _framework_ elegido. Por ende,
+necesaria. Por ende,
 los _tests_ y el _setup_ necesario para ejecutarlos, serán hechos por ti.
 
 ## Criterios de aceptación del proyecto
@@ -212,32 +210,4 @@ rápidamente a los clientes que las hicieron.
 
 ## Pistas / Tips
 
-### Frameworks / libraries
 
-* [React](https://reactjs.org/)
-* [Angular](https://angular.io/)
-
-### Herramientas
-
-* [npm-scripts](https://docs.npmjs.com/misc/scripts)
-* [Babel](https://babeljs.io/)
-* [webpack](https://webpack.js.org/)
-
-### PWA
-
-* [Tu primera Progressive Web App - Google developers](https://developers.google.com/web/fundamentals/codelabs/your-first-pwapp/?hl=es)
-* [Progressive Web Apps - codigofacilito.com](https://codigofacilito.com/articulos/progressive-apps)
-* [offlinefirst.org](http://offlinefirst.org/)
-* [Usando Service Workers - MDN](https://developer.mozilla.org/es/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-* [Cómo habilitar datos sin conexión - Firebase Docs](https://firebase.google.com/docs/firestore/manage-data/enable-offline?hl=es-419)
-
-### Serverless
-
-* [Qué es eso de serverless? - @PamRucinque en Medium](https://medium.com/@PamRucinque/qu%C3%A9-es-eso-de-serverless-f4f6c8949b87)
-* [Qué es Serverless? | FooBar - YouTube](https://www.youtube.com/watch?v=_SYHUpLi-2U)
-* [Firebase](https://firebase.google.com/)
-* [Serverless Architectures - Martin Fowler](https://www.martinfowler.com/articles/serverless.html)
-
-### Cloud functions
-
-* [Cloud functions - Firebase Docs](https://firebase.google.com/docs/functions/?hl=es-419)
