@@ -15,7 +15,7 @@ body {
 }
 
 .background {
-  background-color: #57c49f
+  background-color: grey;
 }
 
 .color {
@@ -57,7 +57,8 @@ body {
 }
 
 .container-link {
-  padding-right: 1rem
+  padding-right: 1.5
+  rem
 }
 
 .link {
