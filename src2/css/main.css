@@ -56,6 +56,9 @@ body {
   list-style: none
 }
 
+.hide{
+  display:none
+}
 .container-link {
   padding-right: 1.5rem
 }
