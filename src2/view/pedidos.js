@@ -6,24 +6,47 @@ export default () => {
     
   const viewAccessories = `
   <h2 class="text-center">PEDIDOS</h2>
-  <button id= "desayunos">DESAYUNO</button><div id="desaparece" class="hide"><button id="cafe">CAFE AMERICANO</button><button>CAFE CON LECHE</button><button>SANDWICH DE JAMON Y QUESO</button><button>JUGO NATURAL</button></div>`;
+  <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div>`;
   divElemt.innerHTML = viewAccessories;
 
+  const carta = divElemt.querySelector('#carta');
+
+  const pintarColeccion = (doc) => {
+    let btnName = document.createElement('button');
+
+    btnName.setAttribute('id', doc.id);
+    btnName.textContent = `${doc.data().name}:  $${doc.data().precio}`;
+     
+    carta.appendChild(btnName);
+
+  }
   const desayunos = divElemt.querySelector('#desayunos');
 
-  desayunos.addEventListener('click',()=>{
-    const desaparece= divElemt.querySelector('#desaparece');
-    desaparece.classList.remove('hide')});
-
-  const cafeAmericano= divElemt.querySelector('#cafe');
-
-  cafeAmericano.addEventListener('click',() => {
+  desayunos.addEventListener('click',() => {
+    carta.innerHTML="";
     getData('Desayunos')
     .then((snapshot)=> {
       snapshot.docs.forEach(doc => {
-      console.log(doc.data()); 
+      pintarColeccion(doc);
       });
   });
 });
+  const btnMenus = divElemt.querySelector('#btn-menus');
+
+  btnMenus.addEventListener('click',()=>{
+    carta.innerHTML="";
+    getData('Menus')
+    .then((snapshot)=> {
+      snapshot.docs.forEach(doc => {
+      pintarColeccion(doc);
+      });
+  });
+  });
+
+  carta .addEventListener('click',(event)=>{
+   
+    console.log(event.target.id);
+  });
+
   return divElemt;
 };
