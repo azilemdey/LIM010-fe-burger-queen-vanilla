@@ -1,3 +1,3 @@
-export const getData = (coleccionName)=>{
+export const getData = (coleccionName) => {
   return  firebase.firestore().collection(coleccionName).get();
 };
