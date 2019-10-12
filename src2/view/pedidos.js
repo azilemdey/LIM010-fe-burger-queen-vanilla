@@ -18,6 +18,10 @@ export default () => {
     btnName.textContent = `${doc.data().name}:  $${doc.data().precio}`;
      
     carta.appendChild(btnName);
+    btnName.addEventListener('click',(event)=>{
+   
+      console.log(event.target.id);
+    });
 
   }
   const desayunos = divElemt.querySelector('#desayunos');
@@ -43,10 +47,10 @@ export default () => {
   });
   });
 
-  carta .addEventListener('click',(event)=>{
+  /* carta.addEventListener('click',(event)=>{
    
     console.log(event.target.id);
-  });
+  }); */
 
   return divElemt;
 };
