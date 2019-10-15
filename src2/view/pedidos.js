@@ -20,6 +20,7 @@ export default () => {
     carta.appendChild(btnName);
 
     btnName.addEventListener('click',() => {
+<<<<<<< HEAD
       const obj = {
         productId: doc.id,
         precio: doc.data().precio,
@@ -37,7 +38,32 @@ export default () => {
        const arr = arrPedidos.find(producto => producto.id === doc.id);
           
       }  
+=======
+      const productoSeleccionado = doc.data();
+      productoSeleccionado.id = doc.id;
+      productoSeleccionado.cantidad = 1;
+      
+      arrPedidos.push(productoSeleccionado);
+      
+      if (productoSeleccionado.cantidad !== 1) {
+        alert('jdb');
+        const arr = arrPedidos.find(producto => producto.id === doc.id);      
+        arr.cantidad += 1;
+        console.log(arr);
+        // console.log(productoSeleccionado);
+        // console.log(doc.id);
+      } 
+      // } else {
+      //  const arr = arrPedidos.find(producto => producto.id === doc.id);      
+      //  arr.cantidad += 1;
+      //  console.log(arr);
+      // }
+>>>>>>> b1b6a598da24f38bb9bb30140f17f8a32996124f
       });
+     
+     
+      
+      
       // else if (doc.id === doc.data().id) {
         
       // }
