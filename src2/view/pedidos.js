@@ -18,26 +18,24 @@ export default () => {
     btnName.setAttribute('id', doc.id);
     btnName.textContent = `${doc.data().name}:  $${doc.data().precio}`;
     carta.appendChild(btnName);
-<<<<<<< HEAD
-    btnName.addEventListener('click',(event)=>{
-   
-      console.log(event.target.id);
-    });
 
-    btnName.addEventListener('click',()=>{
-=======
     btnName.addEventListener('click',() => {
-      const productoSeleccionado = doc.data();
->>>>>>> be9629552134615840555e69dcc02f547b660a8f
-      arrPedidos.push(doc.data());
+      const obj = {
+        productId: doc.id,
+        precio: doc.data().precio,
+        nombre: doc.data().name,
+        cantidad: 1
+      }
+
+      arrPedidos.push(obj);
+      console.log(arrPedidos);
+      productoSeleccionado.productId= doc.id;
+      
       if (arrPedidos.length === 0 ) {
         productoSeleccionado.cantidad = 1;
-        console.log(productoSeleccionado);
-        console.log(doc.id);
       }else {
        const arr = arrPedidos.find(producto => producto.id === doc.id);
-       console.log(arr);
-       
+          
       }  
       });
       // else if (doc.id === doc.data().id) {
