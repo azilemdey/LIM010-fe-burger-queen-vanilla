@@ -20,17 +20,29 @@ export default () => {
     carta.appendChild(btnName);
     btnName.addEventListener('click',() => {
       const productoSeleccionado = doc.data();
-      arrPedidos.push(doc.data());
-      if (arrPedidos.length === 0 ) {
-        productoSeleccionado.cantidad = 1;
-        console.log(productoSeleccionado);
-        console.log(doc.id);
-      }else {
-       const arr = arrPedidos.find(producto => producto.id === doc.id);
-       console.log(arr);
-       
-      }  
+      productoSeleccionado.id = doc.id;
+      productoSeleccionado.cantidad = 1;
+      
+      arrPedidos.push(productoSeleccionado);
+      
+      if (productoSeleccionado.cantidad !== 1) {
+        alert('jdb');
+        const arr = arrPedidos.find(producto => producto.id === doc.id);      
+        arr.cantidad += 1;
+        console.log(arr);
+        // console.log(productoSeleccionado);
+        // console.log(doc.id);
+      } 
+      // } else {
+      //  const arr = arrPedidos.find(producto => producto.id === doc.id);      
+      //  arr.cantidad += 1;
+      //  console.log(arr);
+      // }
       });
+     
+     
+      
+      
       // else if (doc.id === doc.data().id) {
         
       // }
