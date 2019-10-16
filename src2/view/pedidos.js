@@ -7,7 +7,18 @@ export default () => {
 
   const viewAccessories = `
   <h2 class="text-center">PEDIDOS</h2>
-  <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div></div><div id= "pedidos"></div>`;
+  <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div></div><div>
+  <table>
+  <tr>
+  <td><strong>PRODUCTO</strong></td>
+  <td><strong>PRECIO</strong></td>
+  <td><strong>CANTIDAD</strong></td>
+  </tr>
+  </table>  
+  <table id = "pedidos" class="hide">
+  <tr id="pedidos">
+  </tr>  
+  </table></div>`;
   divElemt.innerHTML = viewAccessories;
 
   const arrPedidos = [];
@@ -32,7 +43,8 @@ export default () => {
         arrPedidos.push(productoSeleccionado);
       };
 
-     const pedidos = divElemt.querySelector('#pedidos');      
+     const pedidos = divElemt.querySelector('#pedidos'); 
+     pedidos.classList.remove("hide");     
      pintarArray(arrPedidos,pedidos);
 
     });

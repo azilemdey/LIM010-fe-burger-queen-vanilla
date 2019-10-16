@@ -5,8 +5,13 @@ export const getData = (coleccionName) => {
 
 //para separar
 export const pintarArray = (arrayPrint, eleHTML) => {
-  eleHTML.innerHTML = '';
+
   const resultado = arrayPrint.reduce((accum, elem) => {
-    return accum + `<p>${elem.name}  $${elem.precio}  ${elem.cantidad} unidades</p>`;
+    return accum + 
+    `<tr>
+      <td>${elem.name} </td>
+      <td>$${elem.precio}</td>
+      <td>${elem.cantidad}</td>
+      </tr>`
   }, '')
   eleHTML.innerHTML = resultado};
