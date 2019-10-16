@@ -7,6 +7,19 @@ export const getData = (coleccionName) => {
 export const pintarArray = (arrayPrint, eleHTML) => {
   eleHTML.innerHTML = '';
   const resultado = arrayPrint.reduce((accum, elem) => {
-    return accum + `<p>${elem.name}  $${elem.precio}  ${elem.cantidad} unidades</p>`;
+    return accum + `
+      <tr>
+      <td>${elem.name}</td>
+      <td>$${elem.precio}</td>
+      <td>${elem.cantidad} unidades</td>
+      </tr>`;
   }, '')
-  eleHTML.innerHTML = resultado};
+  const tabla   = document.createElement("table");
+  tabla.innerHTML =`
+  <th>Pedido</th>
+  <th>Precio</th>
+  <th>Cantidad</th>
+   ${resultado}`;
+  eleHTML.appendChild(tabla);
+ 
+};

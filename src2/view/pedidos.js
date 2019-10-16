@@ -7,7 +7,8 @@ export default () => {
 
   const viewAccessories = `
   <h2 class="text-center">PEDIDOS</h2>
-  <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div></div><div id= "pedidos"></div>`;
+  <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div>
+  </div><div id= "area-pedidos" class="hide"></div>`;
   divElemt.innerHTML = viewAccessories;
 
   const arrPedidos = [];
@@ -31,9 +32,11 @@ export default () => {
       } else {
         arrPedidos.push(productoSeleccionado);
       };
-
-     const pedidos = divElemt.querySelector('#pedidos');      
-     pintarArray(arrPedidos,pedidos);
+    
+    //  const pedidos = divElemt.querySelector('#pedidos');
+     const areaPedidos = divElemt.querySelector('#area-pedidos');      
+     areaPedidos.classList.remove('hide');
+     pintarArray(arrPedidos, areaPedidos);
 
     });
   };
