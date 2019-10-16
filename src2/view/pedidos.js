@@ -1,4 +1,4 @@
-import { getData, pintarArray } from "../firebase-controller/funciones.js";
+import { getData, pintarArray, eliminarElem } from "../firebase-controller/funciones.js";
 // import { docById } from "../firebase-controller/funciones.js";
 
 export default () => {
@@ -38,6 +38,16 @@ export default () => {
      areaPedidos.classList.remove('hide');
      pintarArray(arrPedidos, areaPedidos);
 
+     const tablaPedidos = divElemt.querySelector('#tabla-pedidos');  
+     tablaPedidos.addEventListener('click', (event) => {
+      const obtenerId = event.target.id;
+      eliminarElem(arrPedidos, obtenerId)
+      console.log(arrPedidos);
+
+      pintarArray(arrPedidos, areaPedidos);
+     
+     });
+    
     });
   };
 
