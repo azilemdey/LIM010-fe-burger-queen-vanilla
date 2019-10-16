@@ -8,14 +8,14 @@ export default () => {
   const viewAccessories = `
   <h2 class="text-center">PEDIDOS</h2>
   <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div></div><div>
-  <table>
+  <table id = "encabezado" class = "hide">
   <tr>
   <td><strong>PRODUCTO</strong></td>
   <td><strong>PRECIO</strong></td>
   <td><strong>CANTIDAD</strong></td>
   </tr>
   </table>  
-  <table id = "pedidos" class="hide">
+  <table id = "pedidos" class = "hide">
   <tr id="pedidos">
   </tr>  
   </table></div>`;
@@ -44,8 +44,14 @@ export default () => {
       };
 
      const pedidos = divElemt.querySelector('#pedidos'); 
+     const encabezado = divElemt.querySelector('#encabezado');
      pedidos.classList.remove("hide");     
+     encabezado.classList.remove("hide"); 
      pintarArray(arrPedidos,pedidos);
+
+     const eliminar = divElemt.querySelector('#eliminar');
+     eliminar.addEventListener('click',(event)=>;
+     })
 
     });
   };

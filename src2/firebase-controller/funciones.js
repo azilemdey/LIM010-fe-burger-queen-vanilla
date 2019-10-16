@@ -5,13 +5,22 @@ export const getData = (coleccionName) => {
 
 //para separar
 export const pintarArray = (arrayPrint, eleHTML) => {
-
-  const resultado = arrayPrint.reduce((accum, elem) => {
+  eleHTML.innerHTML = '';
+  const resultado = arrayPrint.reduce((accum, elem, indice) => {
     return accum + 
-    `<tr>
+      `<tr>
       <td>${elem.name} </td>
-      <td>$${elem.precio}</td>
+      <td>$${elem.prec
+        
+        io}</td>
       <td>${elem.cantidad}</td>
+      <td><button data-indice = ${indice} id = "eliminar">x</button></td>
       </tr>`
   }, '')
   eleHTML.innerHTML = resultado};
+
+/* export const eliminarObj = (arr, indice) =>{
+    const newArray = [...arr];
+    newArray.splice(indice, 1);
+    return newArray;
+  }; */
