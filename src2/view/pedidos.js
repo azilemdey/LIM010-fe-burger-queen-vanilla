@@ -25,18 +25,16 @@ export default () => {
         precio: doc.data().precio,
         nombre: doc.data().name,
         cantidad: 1
-      }
-
+      };
       arrPedidos.push(obj);
-      console.log(arrPedidos);
-      productoSeleccionado.productId= doc.id;
+      // console.log(arrPedidos);
       
-      if (arrPedidos.length === 0 ) {
-        productoSeleccionado.cantidad = 1;
+      if (arrPedidos.length === 0 ) { return arrPedidos
       }else {
-       const arr = arrPedidos.find(producto => producto.id === doc.id);
-          
-      }  
+       const plus = arrPedidos.find(producto => producto.id === obj.productId);
+       console.log(plus);
+        
+       } 
       });
       // else if (doc.id === doc.data().id) {
         
