@@ -7,18 +7,25 @@ export const getData = (coleccionName) => {
 export const pintarArray = (arrayPrint, eleHTML) => {
   eleHTML.innerHTML = '';
   const resultado = arrayPrint.reduce((accum, elem, indice) => {
-    return accum + 
-      `<tr>
-      <td>${elem.name} </td>
+    return accum + `
+      <tr>
+      <td>${elem.name}</td>
       <td>$${elem.precio}</td>
-      <td>${elem.cantidad}</td>
-      <td><button data-indice = ${indice} id = "eliminar">x</button></td>
-      </tr>`
+      <td>${elem.cantidad} unidades</td>
+      <td><button id="${indice}">x</button></td>
+      </tr>`;
   }, '')
-  eleHTML.innerHTML = resultado};
+  const tabla   = document.createElement("table");
+  tabla.innerHTML =`
+  <th>Pedido</th>
+  <th>Precio</th>
+  <th>Cantidad</th>
+   ${resultado}`;
+  eleHTML.appendChild(tabla);
+  tabla.setAttribute('id','tabla-pedidos');
+};
 
-/* export const eliminarObj = (arr, indice) =>{
-    const newArray = [...arr];
-    newArray.splice(indice, 1);
-    return newArray;
-  }; */
+export const eliminarElem = (arr, indice) => {
+  arr.splice(indice, 1);
+  return arr;
+};

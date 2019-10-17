@@ -1,4 +1,4 @@
-import { getData, pintarArray } from "../firebase-controller/funciones.js";
+import { getData, pintarArray, eliminarElem } from "../firebase-controller/funciones.js";
 // import { docById } from "../firebase-controller/funciones.js";
 
 export default () => {
@@ -7,18 +7,8 @@ export default () => {
 
   const viewAccessories = `
   <h2 class="text-center">PEDIDOS</h2>
-  <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div></div><div>
-  <table id = "encabezado" class = "hide">
-  <tr>
-  <td><strong>PRODUCTO</strong></td>
-  <td><strong>PRECIO</strong></td>
-  <td><strong>CANTIDAD</strong></td>
-  </tr>
-  </table>  
-  <table id = "pedidos" class = "hide">
-  <tr id="pedidos">
-  </tr>  
-  </table></div>`;
+  <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div>
+  </div><div id= "area-pedidos" class="hide"></div>`;
   divElemt.innerHTML = viewAccessories;
 
   const arrPedidos = [];
@@ -42,17 +32,22 @@ export default () => {
       } else {
         arrPedidos.push(productoSeleccionado);
       };
+    
+    //  const pedidos = divElemt.querySelector('#pedidos');
+     const areaPedidos = divElemt.querySelector('#area-pedidos');      
+     areaPedidos.classList.remove('hide');
+     pintarArray(arrPedidos, areaPedidos);
 
-     const pedidos = divElemt.querySelector('#pedidos'); 
-     const encabezado = divElemt.querySelector('#encabezado');
-     pedidos.classList.remove("hide");     
-     encabezado.classList.remove("hide"); 
-     pintarArray(arrPedidos,pedidos);
+     const tablaPedidos = divElemt.querySelector('#tabla-pedidos');  
+     tablaPedidos.addEventListener('click', (event) => {
+      const obtenerId = event.target.id;
+      eliminarElem(arrPedidos, obtenerId)
+      console.log(arrPedidos);
 
-     const eliminar = divElemt.querySelector('#eliminar');
-     eliminar.addEventListener('click',(event)=>;
-     })
-
+      pintarArray(arrPedidos, areaPedidos);
+     
+     });
+    
     });
   };
 
