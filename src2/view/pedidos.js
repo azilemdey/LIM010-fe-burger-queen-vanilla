@@ -18,7 +18,7 @@ export default () => {
   <table id = "pedidos" class = "hide">
   <tr id="pedidos">
   </tr>  
-  </table></div>`;
+  </table></div>`; 
   divElemt.innerHTML = viewAccessories;
 
   const arrPedidos = [];

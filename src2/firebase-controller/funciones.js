@@ -11,7 +11,7 @@ export const pintarArray = (arrayPrint, eleHTML) => {
     `<tr>
       <td>${elem.name} </td>
       <td>$${elem.precio}</td>
-      <td>${elem.cantidad}</td>Z
+      <td>${elem.cantidad}</td>
       </tr>`
   }, '')
   eleHTML.innerHTML = resultado};
