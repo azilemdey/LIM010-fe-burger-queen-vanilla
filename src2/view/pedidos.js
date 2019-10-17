@@ -1,66 +1,80 @@
-import { getData } from "../firebase-controller/funciones.js";
+import { getData, pintarArray } from "../firebase-controller/funciones.js";
 // import { docById } from "../firebase-controller/funciones.js";
 
 export default () => {
   const divElemt = document.createElement('div');
-    divElemt.classList.add('position')
-    
+  divElemt.classList.add('position')
+
   const viewAccessories = `
   <h2 class="text-center">PEDIDOS</h2>
-  <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div></div>`;
+  <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div></div><div>
+  <table id = "encabezado" class = "hide">
+  <tr>
+  <td><strong>PRODUCTO</strong></td>
+  <td><strong>PRECIO</strong></td>
+  <td><strong>CANTIDAD</strong></td>
+  </tr>
+  </table>  
+  <table id = "pedidos" class = "hide">
+  <tr id="pedidos">
+  </tr>  
+  </table></div>`;
   divElemt.innerHTML = viewAccessories;
-  
+
   const arrPedidos = [];
   const carta = divElemt.querySelector('#carta');
-  
+
   const pintarColeccion = (doc) => {
     let btnName = document.createElement('button');
     btnName.setAttribute('id', doc.id);
     btnName.textContent = `${doc.data().name}:  $${doc.data().precio}`;
     carta.appendChild(btnName);
 
-    btnName.addEventListener('click',() => {
-      const obj = {
-        productId: doc.id,
-        precio: doc.data().precio,
-        nombre: doc.data().name,
-        cantidad: 1
-      };
-      arrPedidos.push(obj);
-      // console.log(arrPedidos);
-      
-      if (arrPedidos.length === 0 ) { return arrPedidos
-      }else {
-       const plus = arrPedidos.find(producto => producto.id === obj.productId);
-       console.log(plus);
-        
-       } 
-      });
-      // else if (doc.id === doc.data().id) {
-        
-      // }
-     
+    btnName.addEventListener('click', () => {
+      const productoSeleccionado = doc.data();
+      productoSeleccionado.id = doc.id;
+      productoSeleccionado.cantidad = 1;
+      console.log(arrPedidos);
 
-  }
+      const elemExiste = arrPedidos.find(producto => producto.id === doc.id);
+      if (elemExiste) {
+        elemExiste.cantidad += 1;
+      } else {
+        arrPedidos.push(productoSeleccionado);
+      };
+
+     const pedidos = divElemt.querySelector('#pedidos'); 
+     const encabezado = divElemt.querySelector('#encabezado');
+     pedidos.classList.remove("hide");     
+     encabezado.classList.remove("hide"); 
+     pintarArray(arrPedidos,pedidos);
+
+     const eliminar = divElemt.querySelector('#eliminar');
+     eliminar.addEventListener('click',(event)=>;
+     })
+
+    });
+  };
+
   const desayunos = divElemt.querySelector('#desayunos');
 
-  desayunos.addEventListener('click',() => {
-    carta.innerHTML="";
-    getData('Desayunos').then((snapshot)=> {
+  desayunos.addEventListener('click', () => {
+    carta.innerHTML = "";
+    getData('Desayunos').then((snapshot) => {
       snapshot.docs.forEach(doc => {
-      pintarColeccion(doc);
+        pintarColeccion(doc);
       });
+    });
   });
-});
   const btnMenus = divElemt.querySelector('#btn-menus');
 
-  btnMenus.addEventListener('click',()=>{
-    carta.innerHTML="";
-    getData('Menus').then((snapshot)=> {
+  btnMenus.addEventListener('click', () => {
+    carta.innerHTML = "";
+    getData('Menus').then((snapshot) => {
       snapshot.docs.forEach(doc => {
-      pintarColeccion(doc);
+        pintarColeccion(doc);
       });
-  });
+    });
   });
   return divElemt;
 };
