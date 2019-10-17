@@ -1,4 +1,4 @@
-import { getData, pintarArray } from "../firebase-controller/funciones.js";
+import { getData, pintarArray, eliminarElem } from "../firebase-controller/funciones.js";
 // import { docById } from "../firebase-controller/funciones.js";
 
 export default () => {
@@ -7,6 +7,7 @@ export default () => {
 
   const viewAccessories = `
   <h2 class="text-center">PEDIDOS</h2>
+<<<<<<< HEAD
   <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div></div><div>
   <table id = "encabezado" class = "hide">
   <tr>
@@ -19,6 +20,10 @@ export default () => {
   <tr id="pedidos">
   </tr>  
   </table></div>`; 
+=======
+  <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div>
+  </div><div id= "area-pedidos" class="hide"></div>`;
+>>>>>>> 12e500e090ac25cc3f0b66ef7493e73e1ce679d8
   divElemt.innerHTML = viewAccessories;
 
   const arrPedidos = [];
@@ -42,7 +47,13 @@ export default () => {
       } else {
         arrPedidos.push(productoSeleccionado);
       };
+    
+    //  const pedidos = divElemt.querySelector('#pedidos');
+     const areaPedidos = divElemt.querySelector('#area-pedidos');      
+     areaPedidos.classList.remove('hide');
+     pintarArray(arrPedidos, areaPedidos);
 
+<<<<<<< HEAD
      const pedidos = divElemt.querySelector('#pedidos'); 
      const encabezado = divElemt.querySelector('#encabezado');
      pedidos.classList.remove("hide");     
@@ -53,6 +64,18 @@ export default () => {
      eliminar.addEventListener('click',(event)=>;
      })
 
+=======
+     const tablaPedidos = divElemt.querySelector('#tabla-pedidos');  
+     tablaPedidos.addEventListener('click', (event) => {
+      const obtenerId = event.target.id;
+      eliminarElem(arrPedidos, obtenerId)
+      console.log(arrPedidos);
+
+      pintarArray(arrPedidos, areaPedidos);
+     
+     });
+    
+>>>>>>> 12e500e090ac25cc3f0b66ef7493e73e1ce679d8
     });
   };
 
