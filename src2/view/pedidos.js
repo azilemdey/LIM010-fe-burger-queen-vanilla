@@ -1,4 +1,4 @@
-import { getData, pintarArray, eliminarElem } from "../firebase-controller/funciones.js";
+import { getData, pintarArray} from "../firebase-controller/funciones.js";
 // import { docById } from "../firebase-controller/funciones.js";
 
 export default () => {
@@ -14,7 +14,7 @@ export default () => {
   const arrPedidos = [];
   const carta = divElemt.querySelector('#carta');
 
-  const pintarColeccion = (doc) => {
+    const pintarColeccion = (doc) => {
     let btnName = document.createElement('button');
     btnName.setAttribute('id', doc.id);
     btnName.textContent = `${doc.data().name}:  $${doc.data().precio}`;
@@ -24,7 +24,6 @@ export default () => {
       const productoSeleccionado = doc.data();
       productoSeleccionado.id = doc.id;
       productoSeleccionado.cantidad = 1;
-      console.log(arrPedidos);
 
       const elemExiste = arrPedidos.find(producto => producto.id === doc.id);
       if (elemExiste) {
@@ -34,23 +33,22 @@ export default () => {
       };
     
     //  const pedidos = divElemt.querySelector('#pedidos');
-     const areaPedidos = divElemt.querySelector('#area-pedidos');      
+     let areaPedidos = divElemt.querySelector('#area-pedidos');      
      areaPedidos.classList.remove('hide');
      pintarArray(arrPedidos, areaPedidos);
 
-     const tablaPedidos = divElemt.querySelector('#tabla-pedidos');  
-     tablaPedidos.addEventListener('click', (event) => {
-      const methodTarget=event.target;
-      const obtenerId = methodTarget.id;
-      console.log(methodTarget.tagName);
-      if(methodTarget.tagName=="BUTTON"){
-      eliminarElem(arrPedidos, obtenerId)
-      console.log(arrPedidos);
+     areaPedidos = divElemt.querySelector('#area-pedidos');
+    //  const btnsDelete = areaPedidos.querySelectorAll(`[name='eliminar']`);
+    //  btnsDelete.forEach((btnDelete) => {
+    //   btnDelete.addEventListener('click', (event) => {
+    //     const obtenerId = event.target.id;
+    //     eliminarElem(arrPedidos, obtenerId)
       pintarArray(arrPedidos, areaPedidos);
-      }
-     });
-    
-    });
+       
+      //  });
+    //  })
+      });
+      
   };
 
   const desayunos = divElemt.querySelector('#desayunos');
