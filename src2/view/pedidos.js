@@ -40,12 +40,14 @@ export default () => {
 
      const tablaPedidos = divElemt.querySelector('#tabla-pedidos');  
      tablaPedidos.addEventListener('click', (event) => {
-      const obtenerId = event.target.id;
+      const methodTarget=event.target;
+      const obtenerId = methodTarget.id;
+      console.log(methodTarget.tagName);
+      if(methodTarget.tagName=="BUTTON"){
       eliminarElem(arrPedidos, obtenerId)
       console.log(arrPedidos);
-
       pintarArray(arrPedidos, areaPedidos);
-     
+      }
      });
     
     });
