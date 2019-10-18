@@ -30,8 +30,8 @@ export const pintarArray = (arrayPrint, eleHTML) => {
   botones.forEach((btnDelete) => { btnDelete.addEventListener('click',(event)=>{
     const getIndex=event.target.id;
     arrayPrint.splice(getIndex,1);
-    eleHTML.innerHTML = '';
-    return (arrayPrint);
+    // eleHTML.innerHTML = '';
+    console.log(arrayPrint);
     
   });
   })

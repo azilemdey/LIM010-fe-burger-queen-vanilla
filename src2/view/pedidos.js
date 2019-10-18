@@ -37,13 +37,13 @@ export default () => {
      areaPedidos.classList.remove('hide');
      pintarArray(arrPedidos, areaPedidos);
 
-     areaPedidos = divElemt.querySelector('#area-pedidos');
-    //  const btnsDelete = areaPedidos.querySelectorAll(`[name='eliminar']`);
-    //  btnsDelete.forEach((btnDelete) => {
-    //   btnDelete.addEventListener('click', (event) => {
-    //     const obtenerId = event.target.id;
-    //     eliminarElem(arrPedidos, obtenerId)
-      pintarArray(arrPedidos, areaPedidos);
+    //  areaPedidos = divElemt.querySelector('#area-pedidos');
+    // //  const btnsDelete = areaPedidos.querySelectorAll(`[name='eliminar']`);
+    // //  btnsDelete.forEach((btnDelete) => {
+    // //   btnDelete.addEventListener('click', (event) => {
+    // //     const obtenerId = event.target.id;
+    // //     eliminarElem(arrPedidos, obtenerId)
+    //   pintarArray(arrPedidos, areaPedidos);
        
       //  });
     //  })
