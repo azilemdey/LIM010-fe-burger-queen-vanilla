@@ -1,4 +1,4 @@
-import { getData, pintarArray} from "../firebase-controller/funciones.js";
+import { getData, pintarArray, deleteProduct } from "../firebase-controller/funciones.js";
 // import { docById } from "../firebase-controller/funciones.js";
 
 export default () => {
@@ -14,7 +14,7 @@ export default () => {
   const arrPedidos = [];
   const carta = divElemt.querySelector('#carta');
 
-    const pintarColeccion = (doc) => {
+  const pintarColeccion = (doc) => {
     let btnName = document.createElement('button');
     btnName.setAttribute('id', doc.id);
     btnName.textContent = `${doc.data().name}:  $${doc.data().precio}`;
@@ -31,24 +31,28 @@ export default () => {
       } else {
         arrPedidos.push(productoSeleccionado);
       };
-    
-    //  const pedidos = divElemt.querySelector('#pedidos');
-     let areaPedidos = divElemt.querySelector('#area-pedidos');      
-     areaPedidos.classList.remove('hide');
-     pintarArray(arrPedidos, areaPedidos);
 
-    //  areaPedidos = divElemt.querySelector('#area-pedidos');
-    // //  const btnsDelete = areaPedidos.querySelectorAll(`[name='eliminar']`);
-    // //  btnsDelete.forEach((btnDelete) => {
-    // //   btnDelete.addEventListener('click', (event) => {
-    // //     const obtenerId = event.target.id;
-    // //     eliminarElem(arrPedidos, obtenerId)
-    //   pintarArray(arrPedidos, areaPedidos);
-       
+      //  const pedidos = divElemt.querySelector('#pedidos');
+      let areaPedidos = divElemt.querySelector('#area-pedidos');
+      areaPedidos.classList.remove('hide');
+      pintarArray(arrPedidos, areaPedidos);
+
+      areaPedidos = divElemt.querySelector('#area-pedidos');
+      const btnsDelete = areaPedidos.querySelectorAll(`[name='eliminar']`)
+      delete deleteProduct(btnsDelete,arrPedidos);
+      // pintarArray(arrPedidos, areaPedidos);
+      console.log(arrPedidos);
+      // //  const btnsDelete = areaPedidos.querySelectorAll(`[name='eliminar']`);
+      // //  btnsDelete.forEach((btnDelete) => {
+      // //   btnDelete.addEventListener('click', (event) => {
+      // //     const obtenerId = event.target.id;
+      // //     eliminarElem(arrPedidos, obtenerId)
+      //   
+
       //  });
-    //  })
-      });
-      
+      //  })
+    });
+
   };
 
   const desayunos = divElemt.querySelector('#desayunos');

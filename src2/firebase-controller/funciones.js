@@ -25,15 +25,18 @@ export const pintarArray = (arrayPrint, eleHTML) => {
    ${resultado}`;
   eleHTML.appendChild(tabla);
   tabla.setAttribute('id','tabla-pedidos');
-  
-  const botones = tabla.querySelectorAll(`[name='eliminar']`)
-  botones.forEach((btnDelete) => { btnDelete.addEventListener('click',(event)=>{
-    const getIndex=event.target.id;
-    arrayPrint.splice(getIndex,1);
-    // eleHTML.innerHTML = '';
-    console.log(arrayPrint);
-    
-  });
-  })
-};
+  };
 
+
+
+export const deleteProduct= (botones,array)=>{
+  botones.forEach((btnDelete) => { 
+    btnDelete.addEventListener('click',(event)=>{
+  const getIndex=event.target.id;
+  array.splice(getIndex,1);
+  // eleHTML.innerHTML = '';
+  console.log(array);
+  pintarArray(arrayPrint, eleHTML);
+      });
+  });
+};
