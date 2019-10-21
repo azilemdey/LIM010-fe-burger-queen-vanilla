@@ -27,16 +27,15 @@ export const pintarArray = (arrayPrint, eleHTML) => {
   tabla.setAttribute('id','tabla-pedidos');
   };
 
-
-
-export const deleteProduct= (botones,array)=>{
+export const deleteProduct= (botones,array,eleHTML)=>{
   botones.forEach((btnDelete) => { 
     btnDelete.addEventListener('click',(event)=>{
   const getIndex=event.target.id;
+  console.log(getIndex);
   array.splice(getIndex,1);
-  // eleHTML.innerHTML = '';
+  eleHTML.innerHTML = '';
   console.log(array);
-  pintarArray(arrayPrint, eleHTML);
+  pintarArray(array, eleHTML);
       });
   });
 };

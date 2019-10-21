@@ -21,6 +21,8 @@ export default () => {
     carta.appendChild(btnName);
 
     btnName.addEventListener('click', () => {
+    const objetito=
+    
       const productoSeleccionado = doc.data();
       productoSeleccionado.id = doc.id;
       productoSeleccionado.cantidad = 1;
@@ -32,16 +34,17 @@ export default () => {
         arrPedidos.push(productoSeleccionado);
       };
 
-      //  const pedidos = divElemt.querySelector('#pedidos');
       let areaPedidos = divElemt.querySelector('#area-pedidos');
+      const pedidosPrint=()=>{
       areaPedidos.classList.remove('hide');
-      pintarArray(arrPedidos, areaPedidos);
+      pintarArray(arrPedidos, areaPedidos)};
+      pedidosPrint();
 
-      areaPedidos = divElemt.querySelector('#area-pedidos');
+      const deleteAll=()=>{
       const btnsDelete = areaPedidos.querySelectorAll(`[name='eliminar']`)
-      delete deleteProduct(btnsDelete,arrPedidos);
-      // pintarArray(arrPedidos, areaPedidos);
-      console.log(arrPedidos);
+      deleteProduct(btnsDelete,arrPedidos, areaPedidos);
+      console.log(arrPedidos);}
+      delete deleteAll();
       // //  const btnsDelete = areaPedidos.querySelectorAll(`[name='eliminar']`);
       // //  btnsDelete.forEach((btnDelete) => {
       // //   btnDelete.addEventListener('click', (event) => {
