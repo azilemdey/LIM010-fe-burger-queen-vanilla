@@ -29,7 +29,6 @@ export const pintarArray = (arrayPrint, eleHTML) => {
   const botones = tabla.querySelectorAll(`[name='eliminar']`)
   botones.forEach((btnDelete) => { btnDelete.addEventListener('click',(event)=>{
     const getIndex=event.target.id;
-    // 
     const copiaArr = arrayPrint.slice(0);
     copiaArr.splice(getIndex,1);
     // eleHTML.innerHTML = '';
@@ -40,15 +39,3 @@ export const pintarArray = (arrayPrint, eleHTML) => {
   })
 };
 
-export const deleteProduct= (botones,array,eleHTML)=>{
-  botones.forEach((btnDelete) => { 
-    btnDelete.addEventListener('click',(event)=>{
-  const getIndex=event.target.id;
-  console.log(getIndex);
-  array.splice(getIndex,1);
-  eleHTML.innerHTML = '';
-  console.log(array);
-  pintarArray(array, eleHTML);
-      });
-  });
-};

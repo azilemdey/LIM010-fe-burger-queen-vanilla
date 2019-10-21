@@ -1,4 +1,4 @@
-import { getData, pintarArray, deleteProduct } from "../firebase-controller/funciones.js";
+import { getData, pintarArray} from "../firebase-controller/funciones.js";
 // import { docById } from "../firebase-controller/funciones.js";
 
 export default () => {
@@ -14,15 +14,13 @@ export default () => {
   const arrPedidos = [];
   const carta = divElemt.querySelector('#carta');
 
-  const pintarColeccion = (doc) => {
+    const pintarColeccion = (doc) => {
     let btnName = document.createElement('button');
     btnName.setAttribute('id', doc.id);
     btnName.textContent = `${doc.data().name}:  $${doc.data().precio}`;
     carta.appendChild(btnName);
 
     btnName.addEventListener('click', () => {
-    const objetito=
-    
       const productoSeleccionado = doc.data();
       productoSeleccionado.id = doc.id;
       productoSeleccionado.cantidad = 1;
@@ -40,28 +38,18 @@ export default () => {
      areaPedidos.classList.remove('hide');
      pintarArray(arrPedidos, areaPedidos);
 
-      let areaPedidos = divElemt.querySelector('#area-pedidos');
-      const pedidosPrint=()=>{
-      areaPedidos.classList.remove('hide');
-      pintarArray(arrPedidos, areaPedidos)};
-      pedidosPrint();
-
-      const deleteAll=()=>{
-      const btnsDelete = areaPedidos.querySelectorAll(`[name='eliminar']`)
-      deleteProduct(btnsDelete,arrPedidos, areaPedidos);
-      console.log(arrPedidos);}
-      delete deleteAll();
-      // //  const btnsDelete = areaPedidos.querySelectorAll(`[name='eliminar']`);
-      // //  btnsDelete.forEach((btnDelete) => {
-      // //   btnDelete.addEventListener('click', (event) => {
-      // //     const obtenerId = event.target.id;
-      // //     eliminarElem(arrPedidos, obtenerId)
-      //   
-
+    //  areaPedidos = divElemt.querySelector('#area-pedidos');
+    // //  const btnsDelete = areaPedidos.querySelectorAll(`[name='eliminar']`);
+    // //  btnsDelete.forEach((btnDelete) => {
+    // //   btnDelete.addEventListener('click', (event) => {
+    // //     const obtenerId = event.target.id;
+    // //     eliminarElem(arrPedidos, obtenerId)
+    //   pintarArray(arrPedidos, areaPedidos);
+       
       //  });
-      //  })
-    });
-
+    //  })
+      });
+      
   };
 
   const desayunos = divElemt.querySelector('#desayunos');
@@ -86,4 +74,3 @@ export default () => {
   });
   return divElemt;
 };
-
