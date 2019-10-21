@@ -33,6 +33,12 @@ export default () => {
       } else {
         arrPedidos.push(productoSeleccionado);
       };
+      console.log(arrPedidos);
+      
+    //  const pedidos = divElemt.querySelector('#pedidos');
+     let areaPedidos = divElemt.querySelector('#area-pedidos');      
+     areaPedidos.classList.remove('hide');
+     pintarArray(arrPedidos, areaPedidos);
 
       let areaPedidos = divElemt.querySelector('#area-pedidos');
       const pedidosPrint=()=>{

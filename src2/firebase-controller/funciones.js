@@ -25,7 +25,20 @@ export const pintarArray = (arrayPrint, eleHTML) => {
    ${resultado}`;
   eleHTML.appendChild(tabla);
   tabla.setAttribute('id','tabla-pedidos');
-  };
+  
+  const botones = tabla.querySelectorAll(`[name='eliminar']`)
+  botones.forEach((btnDelete) => { btnDelete.addEventListener('click',(event)=>{
+    const getIndex=event.target.id;
+    // 
+    const copiaArr = arrayPrint.slice(0);
+    copiaArr.splice(getIndex,1);
+    // eleHTML.innerHTML = '';
+    console.log(copiaArr);
+    console.log(arrayPrint);
+    pintarArray(copiaArr,eleHTML)
+  });
+  })
+};
 
 export const deleteProduct= (botones,array,eleHTML)=>{
   botones.forEach((btnDelete) => { 
