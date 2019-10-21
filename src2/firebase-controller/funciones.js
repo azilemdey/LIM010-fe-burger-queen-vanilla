@@ -29,10 +29,13 @@ export const pintarArray = (arrayPrint, eleHTML) => {
   const botones = tabla.querySelectorAll(`[name='eliminar']`)
   botones.forEach((btnDelete) => { btnDelete.addEventListener('click',(event)=>{
     const getIndex=event.target.id;
-    arrayPrint.splice(getIndex,1);
+    // 
+    const copiaArr = arrayPrint.slice(0);
+    copiaArr.splice(getIndex,1);
     // eleHTML.innerHTML = '';
+    console.log(copiaArr);
     console.log(arrayPrint);
-    
+    pintarArray(copiaArr,eleHTML)
   });
   })
 };
