@@ -22,14 +22,17 @@ export default () => {
 
     btnName.addEventListener('click', () => {
       const productoSeleccionado = doc.data();
-      productoSeleccionado.id = doc.id;
-      productoSeleccionado.cantidad = 1;
+      const copiaObj = Object.assign({}, productoSeleccionado);
+      console.log(copiaObj);
+      
+      copiaObj.id = doc.id;
+      copiaObj.cantidad = 1;
 
       const elemExiste = arrPedidos.find(producto => producto.id === doc.id);
       if (elemExiste) {
         elemExiste.cantidad += 1;
       } else {
-        arrPedidos.push(productoSeleccionado);
+        arrPedidos.push(copiaObj);
       };
       console.log(arrPedidos);
       
