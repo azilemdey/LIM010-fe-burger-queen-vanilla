@@ -6,7 +6,7 @@ export default () => {
   divElemt.classList.add('position')
 
   const viewAccessories = `
-  <h2 class="text-center">PEDIDOS</h2>
+   <h2 class="text-center">PEDIDOS</h2>
   <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div>
   </div><div id= "area-pedidos" class="hide"></div>`;
   divElemt.innerHTML = viewAccessories;
@@ -22,14 +22,17 @@ export default () => {
 
     btnName.addEventListener('click', () => {
       const productoSeleccionado = doc.data();
-      productoSeleccionado.id = doc.id;
-      productoSeleccionado.cantidad = 1;
+      const copiaObj = Object.assign({}, productoSeleccionado);
+      console.log(copiaObj);
+      
+      copiaObj.id = doc.id;
+      copiaObj.cantidad = 1;
 
       const elemExiste = arrPedidos.find(producto => producto.id === doc.id);
       if (elemExiste) {
         elemExiste.cantidad += 1;
       } else {
-        arrPedidos.push(productoSeleccionado);
+        arrPedidos.push(copiaObj);
       };
       console.log(arrPedidos);
       
@@ -61,7 +64,7 @@ export default () => {
         pintarColeccion(doc);
       });
     });
-  });
+  }); 
   const btnMenus = divElemt.querySelector('#btn-menus');
 
   btnMenus.addEventListener('click', () => {
