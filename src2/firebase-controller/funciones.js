@@ -45,4 +45,4 @@ export const calcularTotal = (arrayPrint, elem) => {
   console.log(total);
   
   elem.innerHTML = total;
-}
+;}
