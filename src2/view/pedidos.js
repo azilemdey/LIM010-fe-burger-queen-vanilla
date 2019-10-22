@@ -23,8 +23,7 @@ export default () => {
     btnName.addEventListener('click', () => {
       const productoSeleccionado = doc.data();
       const copiaObj = Object.assign({}, productoSeleccionado);
-      console.log(copiaObj);
-      
+        
       copiaObj.id = doc.id;
       copiaObj.cantidad = 1;
 
@@ -34,25 +33,11 @@ export default () => {
       } else {
         arrPedidos.push(copiaObj);
       };
-      console.log(arrPedidos);
       
-    //  const pedidos = divElemt.querySelector('#pedidos');
      let areaPedidos = divElemt.querySelector('#area-pedidos');      
      areaPedidos.classList.remove('hide');
      pintarArray(arrPedidos, areaPedidos);
-
-    //  areaPedidos = divElemt.querySelector('#area-pedidos');
-    // //  const btnsDelete = areaPedidos.querySelectorAll(`[name='eliminar']`);
-    // //  btnsDelete.forEach((btnDelete) => {
-    // //   btnDelete.addEventListener('click', (event) => {
-    // //     const obtenerId = event.target.id;
-    // //     eliminarElem(arrPedidos, obtenerId)
-    //   pintarArray(arrPedidos, areaPedidos);
-       
-      //  });
-    //  })
       });
-      
   };
 
   const desayunos = divElemt.querySelector('#desayunos');
