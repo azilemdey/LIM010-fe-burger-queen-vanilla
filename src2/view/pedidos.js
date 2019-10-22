@@ -1,4 +1,4 @@
-import { getData, pintarArray} from "../firebase-controller/funciones.js";
+import { getData, pintarArray, calcularTotal} from "../firebase-controller/funciones.js";
 // import { docById } from "../firebase-controller/funciones.js";
 
 export default () => {
@@ -8,7 +8,7 @@ export default () => {
   const viewAccessories = `
   <h2 class="text-center">PEDIDOS</h2>
   <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div>
-  </div><div id= "area-pedidos" class="hide"></div>`;
+  </div><input class= "hide" type = "text"><div id= "area-pedidos" class="hide"><div id="precio-total"></div></div>`;
   divElemt.innerHTML = viewAccessories;
 
   const arrPedidos = [];
@@ -35,23 +35,12 @@ export default () => {
         arrPedidos.push(copiaObj);
       };
       console.log(arrPedidos);
-      
-    //  const pedidos = divElemt.querySelector('#pedidos');
-     let areaPedidos = divElemt.querySelector('#area-pedidos');      
+     let areaPedidos = divElemt.querySelector('#area-pedidos');   
+     let precioTotal = divElemt.querySelector('#precio-total');   
      areaPedidos.classList.remove('hide');
      pintarArray(arrPedidos, areaPedidos);
-
-    //  areaPedidos = divElemt.querySelector('#area-pedidos');
-    // //  const btnsDelete = areaPedidos.querySelectorAll(`[name='eliminar']`);
-    // //  btnsDelete.forEach((btnDelete) => {
-    // //   btnDelete.addEventListener('click', (event) => {
-    // //     const obtenerId = event.target.id;
-    // //     eliminarElem(arrPedidos, obtenerId)
-    //   pintarArray(arrPedidos, areaPedidos);
-       
-      //  });
-    //  })
-      });
+     calcularTotal(arrPedidos, precioTotal);
+     });
       
   };
 

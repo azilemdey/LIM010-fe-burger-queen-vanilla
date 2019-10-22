@@ -2,7 +2,6 @@ export const getData = (coleccionName) => {
   return  firebase.firestore().collection(coleccionName).get();
 };
 
-
 //para separar
 
 export const pintarArray = (arrayPrint, eleHTML) => {
@@ -22,7 +21,11 @@ export const pintarArray = (arrayPrint, eleHTML) => {
   <th>Pedido</th>
   <th>Precio</th>
   <th>Cantidad</th>
-   ${resultado}`;
+   ${resultado} 
+   <p name="total"><p>
+   <input type="text" placeholder="Cliente">
+   <button>ok</button>
+   `;
   eleHTML.appendChild(tabla);
   tabla.setAttribute('id','tabla-pedidos');
   
@@ -34,5 +37,13 @@ export const pintarArray = (arrayPrint, eleHTML) => {
     pintarArray(arrayPrint,eleHTML)
   });
   })
+  // const precioTotal = tabla.querySelectorAll(`[name='total']`);  
 };
-
+export const calcularTotal = (arrayPrint, elem) => {
+  const total = arrayPrint.reduce((accum, actual) => {
+    return accum + actual.cantidad * actual.precio;
+  },0)
+  console.log(total);
+  
+  elem.innerHTML = total;
+}
