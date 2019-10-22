@@ -1,4 +1,4 @@
-import { getData, pintarArray, calcularTotal} from "../firebase-controller/funciones.js";
+import { getData, pintarArray} from "../firebase-controller/funciones.js";
 // import { docById } from "../firebase-controller/funciones.js";
 
 export default () => {
@@ -36,11 +36,9 @@ export default () => {
       };
       console.log(arrPedidos);
      let areaPedidos = divElemt.querySelector('#area-pedidos');   
-     let precioTotal = divElemt.querySelector('#precio-total');   
      areaPedidos.classList.remove('hide');
      pintarArray(arrPedidos, areaPedidos);
-     calcularTotal(arrPedidos, precioTotal);
-     });
+      });
       
   };
 
