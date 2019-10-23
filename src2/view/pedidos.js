@@ -23,7 +23,11 @@ export default () => {
 
     btnName.addEventListener('click', () => {
       const productoSeleccionado = doc.data();
+<<<<<<< HEAD
       const copiaObj = Object.assign({}, productoSeleccionado);
+=======
+      const copiaObj = Object.assign({}, productoSeleccionado); 
+>>>>>>> ddd7d843c2824ffc2dc9e754c5113c9d6195eccc
       copiaObj.id = doc.id;
       copiaObj.cantidad = 1;
 
@@ -33,6 +37,10 @@ export default () => {
       } else {
         arrPedidos.push(copiaObj);
       };
+<<<<<<< HEAD
+=======
+      // console.log(arrPedidos);
+>>>>>>> ddd7d843c2824ffc2dc9e754c5113c9d6195eccc
      let areaPedidos = divElemt.querySelector('#area-pedidos');   
      areaPedidos.classList.remove('hide');
      pintarArray(arrPedidos, areaPedidos);
