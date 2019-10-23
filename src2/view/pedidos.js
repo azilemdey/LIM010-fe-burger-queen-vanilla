@@ -1,4 +1,4 @@
-import { getData, pintarArray} from "../firebase-controller/funciones.js";
+import { getData, pintarArray } from "../firebase-controller/funciones.js";
 // import { docById } from "../firebase-controller/funciones.js";
 
 export default () => {
@@ -12,6 +12,7 @@ export default () => {
   divElemt.innerHTML = viewAccessories;
 
   const arrPedidos = [];
+  const arrOrdenes = [];
   const carta = divElemt.querySelector('#carta');
 
     const pintarColeccion = (doc) => {
@@ -23,7 +24,6 @@ export default () => {
     btnName.addEventListener('click', () => {
       const productoSeleccionado = doc.data();
       const copiaObj = Object.assign({}, productoSeleccionado);
-        
       copiaObj.id = doc.id;
       copiaObj.cantidad = 1;
 
@@ -33,12 +33,10 @@ export default () => {
       } else {
         arrPedidos.push(copiaObj);
       };
-      console.log(arrPedidos);
      let areaPedidos = divElemt.querySelector('#area-pedidos');   
      areaPedidos.classList.remove('hide');
      pintarArray(arrPedidos, areaPedidos);
-      });
-      
+      });  
   };
 
   const desayunos = divElemt.querySelector('#desayunos');

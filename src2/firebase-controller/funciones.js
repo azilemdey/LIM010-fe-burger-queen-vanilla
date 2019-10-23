@@ -18,12 +18,12 @@ export const pintarArray = (arrayPrint, eleHTML) => {
 
   const tabla   = document.createElement("table");
   tabla.innerHTML =`
-  <input type="text" placeholder="Cliente">
+  <input type="text" placeholder="Cliente" id = "cliente">
   <th>Pedido</th>
   <th>Precio</th>
   <th>Cantidad</th>
-   ${resultado} 
-   `;
+   ${resultado}`;
+
   eleHTML.appendChild(tabla);
   tabla.setAttribute('id','tabla-pedidos');
   
@@ -32,23 +32,28 @@ export const pintarArray = (arrayPrint, eleHTML) => {
     const getIndex=event.target.id;
     arrayPrint.splice(getIndex,1);
     pintarArray(arrayPrint,eleHTML);
-  });
+    });
   })
 
   const divTotal   = document.createElement("div");
   eleHTML.appendChild(divTotal);
   calcularTotal(arrayPrint, divTotal);
+  creaObjPedido(arrayPrint);
 
   const guardarPedido = document.createElement("button");
   guardarPedido.textContent = 'OK';
   eleHTML.appendChild(guardarPedido);
 };
+
+
 const calcularTotal = (arrayPrint, elem) => {
   const total = arrayPrint.reduce((accum, actual) => {
     return accum + actual.cantidad * actual.precio;
   },0)
-  console.log(total);
-  
-  elem.innerHTML = `total: $ ${total}`;
+  elem.innerHTML = `TOTAL: $ ${total}`;
 }
 
+export const creaObjPedido = (array)=>{
+const obj = {};
+obj.productos = array
+};
