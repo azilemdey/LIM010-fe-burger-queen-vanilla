@@ -3,7 +3,6 @@ export const getData = (coleccionName) => {
 };
 
 //para separar
-const Ordenes = [];
 
 export const pintarArray = (arrayPrint, eleHTML) => {
   eleHTML.innerHTML = '';
@@ -60,12 +59,13 @@ const calcularTotal = (arrayPrint, elem) => {
 }
 
 const crearObjeto = (array, input, total) => {
-  const obj = {};
-  obj.cliente = input.value;
-  obj.productos = array;
-  obj.total = total;
-  console.log(obj);
-  Ordenes.push(obj);
-  console.log(Ordenes);
+  const objOrdenes = {};
+  objOrdenes.cliente = input.value;
+  objOrdenes.productos = array;
+  objOrdenes.total = total;
+  console.log(objOrdenes);
+  firebase.firestore().collection('ordenes').add({
+    objOrdenes
+  });
 }
 
