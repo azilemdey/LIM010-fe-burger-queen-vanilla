@@ -7,6 +7,7 @@ export const calcularTotal = (arrayPrint, elem) => {
   elem.innerHTML = `total: $ ${total}`;
   return total
 }
+
 export const crearObjeto = (array, input, total) => {
   const objOrdenes = {};
   objOrdenes.cliente = input.value;

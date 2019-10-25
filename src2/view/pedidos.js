@@ -1,6 +1,5 @@
 import { getData} from "../functions-controller/firebase-controller.js";
 import { pintarArray} from "../functions-controller/views-controller.js";
-// import { docById } from "../firebase-controller/funciones.js";
 
 export default () => {
   const divElemt = document.createElement('div');
