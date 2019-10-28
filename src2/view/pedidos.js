@@ -1,5 +1,6 @@
 import { getData} from "../functions-controller/firebase-controller.js";
 import { pintarArray} from "../functions-controller/views-controller.js";
+import{aumentarCantidad} from "../functions-controller/funciones.js";
 
 export default () => {
   const divElemt = document.createElement('div');
@@ -10,8 +11,6 @@ export default () => {
   <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div>
   </div><input class= "hide" type = "text"><div id= "area-pedidos" class="hide"><div id="precio-total"></div></div>`;
   divElemt.innerHTML = viewAccessories;
-
-  const arrPedidos = [];
   const carta = divElemt.querySelector('#carta');
 
     const pintarColeccion = (doc) => {
@@ -26,18 +25,11 @@ export default () => {
       copiaObj.id = doc.id;
       copiaObj.cantidad = 1;
 
-      const elemExiste = arrPedidos.find(producto => producto.id === doc.id);
-      if (elemExiste) {
-        elemExiste.cantidad += 1;
-      } else {
-        arrPedidos.push(copiaObj);
-      };
-      // console.log(arrPedidos);
+     aumentarCantidad(copiaObj,doc.id);
      let areaPedidos = divElemt.querySelector('#area-pedidos');   
      areaPedidos.classList.remove('hide');
-     pintarArray(arrPedidos, areaPedidos);
+     pintarArray(areaPedidos);
       });
-      
   };
 
   const desayunos = divElemt.querySelector('#desayunos');

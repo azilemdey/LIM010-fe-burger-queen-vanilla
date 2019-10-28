@@ -1,31 +1,39 @@
 import { guardarData } from "../functions-controller/firebase-controller.js";
-
-export const calcularTotal = (arrayPrint, elem) => {
-  const total = arrayPrint.reduce((accum, actual) => {
+export  let arrPedidos = [];
+export const calcularTotal = (elem) => {
+  const total = arrPedidos.reduce((accum, actual) => {
     return accum + actual.cantidad * actual.precio;
   },0)  
   elem.innerHTML = `total: $ ${total}`;
   return total
 }
 
-export const crearObjeto = (array, input, total) => {
+export const crearObjeto = (input, total) => {
   const objOrdenes = {};
   objOrdenes.cliente = input.value;
-  objOrdenes.productos = array;
+  objOrdenes.productos = arrPedidos;
   objOrdenes.total = total;
   console.log(objOrdenes);
   guardarData('Ordenes', objOrdenes)
   .then(() => {
-    console.log(array);
-    array = [];
-
+  console.log(arrPedidos);
+  arrPedidos=[];
+  console.log(arrPedidos);
   })
   .catch(()=> {
-  alert('realiza nuevamente la orden');
+  console.log('realiza nuevamente la orden');
   })
 }
 
-export const eliminarPedido = (arrayPrint) => {
+export const aumentarCantidad=(objetoProducto,buttonId)=>{
+const elemExiste = arrPedidos.find(producto => producto.id === buttonId);
+if (elemExiste) {
+  elemExiste.cantidad += 1;
+} else {
+  arrPedidos.push(objetoProducto);
+}};
+
+export const eliminarPedido = () => {
   const getIndex=event.target.id;
-      arrayPrint.splice(getIndex,1);
+      arrPedidos.splice(getIndex,1);
 }
