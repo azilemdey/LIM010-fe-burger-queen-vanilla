@@ -1,5 +1,5 @@
 import { getData} from "../functions-controller/firebase-controller.js";
-import { pintarArray, listas} from "../functions-controller/views-controller.js";
+import { pintarArray} from "../functions-controller/views-controller.js";
 import{aumentarCantidad} from "../functions-controller/funciones.js";
 
 export default () => {
@@ -14,10 +14,13 @@ export default () => {
   const carta = divElemt.querySelector('#carta');
 
     const pintarColeccion = (doc) => {
+    let divButton = document.createElement('div');
     let btnName = document.createElement('button');
     btnName.setAttribute('id', doc.id);
     btnName.textContent = `${doc.data().name}:  $${doc.data().precio}`;
-    carta.appendChild(btnName);
+    divButton.setAttribute('name',doc.data().name);
+    divButton.appendChild(btnName);
+    carta.appendChild(divButton);
 
     btnName.addEventListener('click', () => {
       const productoSeleccionado = doc.data();
@@ -28,7 +31,7 @@ export default () => {
       if (copiaObj.name === "Hamburguesa simple" || copiaObj.name === "Hamburguesa doble") {
         // alert('jnhn');
         const sabores = doc.data().sabores;
-        
+        console.log(sabores); 
 
       // console.log(doc.data().sabores);
 
