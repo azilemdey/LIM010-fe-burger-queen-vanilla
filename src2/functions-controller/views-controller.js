@@ -1,8 +1,8 @@
-import { calcularTotal, crearObjeto, eliminarPedido } from "../functions-controller/funciones.js";
+import { calcularTotal, crearObjeto, eliminarPedido,arrPedidos } from "../functions-controller/funciones.js";
 
-export const pintarArray = (arrayPrint, eleHTML) => {
+export const pintarArray = (eleHTML) => {
     eleHTML.innerHTML = '';
-    const resultado = arrayPrint.reduce((accum, elem, indice) => {
+    const resultado = arrPedidos.reduce((accum, elem, indice) => {
       return accum + `
         <tr>
         <td>${elem.name}</td>
@@ -25,22 +25,21 @@ export const pintarArray = (arrayPrint, eleHTML) => {
     
     const botones = tabla.querySelectorAll(`[name='eliminar']`)
     botones.forEach((btnDelete) => { btnDelete.addEventListener('click',(event) => {
-        eliminarPedido(arrayPrint);
-        pintarArray(arrayPrint,eleHTML)
+        eliminarPedido();
+        pintarArray(eleHTML)
     });
     })
   
     const divTotal   = document.createElement("div");
     eleHTML.appendChild(divTotal);
     const nombreCliente = tabla.querySelector('#nombre');
-  
-    calcularTotal(arrayPrint, divTotal);
+      calcularTotal(divTotal);
    
     const guardarPedido = document.createElement("button");
     guardarPedido.textContent = 'OK';
     eleHTML.appendChild(guardarPedido);
     guardarPedido.addEventListener('click', () =>{
-    crearObjeto(arrayPrint,nombreCliente, calcularTotal(arrayPrint,divTotal));
+    crearObjeto(nombreCliente, calcularTotal(divTotal));
     eleHTML.innerHTML = '';
   })
   };
