@@ -27,7 +27,7 @@ export default () => {
       console.log(copiaObj);
       
       if (copiaObj.name === "Hamburguesa simple" || copiaObj.name === "Hamburguesa doble") {
-        alert('jnhn');
+        alert(doc.data().sabores[1]);
         // const sabores = doc.data().sabores;
         // sabores.forEach(sabor => {
           // const listaSabores = document.createElement("ul");
