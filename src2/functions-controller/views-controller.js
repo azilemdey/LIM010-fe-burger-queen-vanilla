@@ -12,6 +12,11 @@ export const pintarArray = (eleHTML) => {
         </tr>`;
     }, '')
   
+    export const listas = sabores.reduce((accum, sabor) => {
+        return accum +
+      `<li>${sabor}</li>`
+      },"");  
+
     const tabla   = document.createElement("table");
     tabla.innerHTML =`
     <input type="text" id= "nombre" placeholder="Cliente">
