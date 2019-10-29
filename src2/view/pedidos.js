@@ -7,7 +7,7 @@ export default () => {
   divElemt.classList.add('position')
 
   const viewAccessories = `
-  <h2 class="text-center">PEDIDOS</h2>
+   <h2 class="text-center">PEDIDOS</h2>
   <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div>
   </div><input class= "hide" type = "text"><div id= "area-pedidos" class="hide"><div id="precio-total"></div></div>`;
   divElemt.innerHTML = viewAccessories;
@@ -21,10 +21,9 @@ export default () => {
 
     btnName.addEventListener('click', () => {
       const productoSeleccionado = doc.data();
-      const copiaObj = Object.assign({}, productoSeleccionado); 
+      const copiaObj = Object.assign({}, productoSeleccionado);
       copiaObj.id = doc.id;
       copiaObj.cantidad = 1;
-      console.log(copiaObj);
       
       if (copiaObj.name === "Hamburguesa simple" || copiaObj.name === "Hamburguesa doble") {
         alert(doc.data().sabores[1]);
@@ -37,7 +36,6 @@ export default () => {
           // lista.textContent =  doc.data().sabores;
       //   })
       // console.log(doc.data().sabores);
-     
        }
      aumentarCantidad(copiaObj,doc.id);
      let areaPedidos = divElemt.querySelector('#area-pedidos');   
@@ -55,7 +53,7 @@ export default () => {
         pintarColeccion(doc);
       });
     });
-  });
+  }); 
   const btnMenus = divElemt.querySelector('#btn-menus');
 
   btnMenus.addEventListener('click', () => {
@@ -68,4 +66,3 @@ export default () => {
   });
   return divElemt;
 };
-
