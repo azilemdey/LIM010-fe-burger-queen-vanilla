@@ -11,11 +11,6 @@ export const pintarArray = (eleHTML) => {
         <td><button id="${indice}" name="eliminar">x</button></td>
         </tr>`;
     }, '')
-  
-    export const listas = sabores.reduce((accum, sabor) => {
-        return accum +
-      `<li>${sabor}</li>`
-      },"");  
 
     const tabla   = document.createElement("table");
     tabla.innerHTML =`
@@ -48,3 +43,22 @@ export const pintarArray = (eleHTML) => {
     eleHTML.innerHTML = '';
   })
   };
+
+  export const pintarSabores= (arr, eleHTML) => {
+   const saborsito = arr.reduce((accum, sabor) => {
+    return accum + sabor;
+    
+  },"");  
+  
+    const divSabores = document.createElement('div');
+//   const divSabor = document.createElement('div');
+    const botonSabores = document.createElement('button');
+
+    botonSabores.appendChild(divSabor);
+    divSabores.appendChild(eleHTML);
+//   divSabor.appendChild(eleHTML);
+
+//   botonSabores.textContent = saborsito;
+botonSabores.innerHTML = `<button>${saborsito}</button>`;
+
+}
