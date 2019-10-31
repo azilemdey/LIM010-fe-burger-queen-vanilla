@@ -46,9 +46,20 @@ export const pintarArray = (eleHTML) => {
 };
 
 export const pintarSabores = (arr, eleHTML) => {
-  const listas = sabores.reduce((accum, sabor) => {
+  const listas = arr.reduce((accum, sabor) => {
     return accum +
-      `<button>${sabor}</button>`
+      `<button id = ${sabor} name = 'sabores'>${sabor}</button>`
   }, "");
-  eleHTML.appendChild();
+  eleHTML.innerHTML=listas;
 };
+
+export const funcioncita = (elementito,obj)=>{
+const botonesDeSabores = elementito.querySelectorAll(`[name='sabores']`);
+  botonesDeSabores.forEach((btnSabor) => {
+    btnSabor.addEventListener('click', (event) => {
+const NombreDeSaboresEnId = event.target.id;
+obj.saborElegido= NombreDeSaboresEnId;
+console.log(obj);
+  });
+});
+}

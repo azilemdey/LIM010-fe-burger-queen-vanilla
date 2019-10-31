@@ -1,5 +1,5 @@
 import { getData} from "../functions-controller/firebase-controller.js";
-import { pintarArray, pintarSabores} from "../functions-controller/views-controller.js";
+import { pintarArray, pintarSabores, funcioncita} from "../functions-controller/views-controller.js";
 import{aumentarCantidad} from "../functions-controller/funciones.js";
 
 export default () => {
@@ -15,11 +15,13 @@ export default () => {
 
     const pintarColeccion = (doc) => {
     let divButton = document.createElement('div');
+    let divSabores = document.createElement('div');
     let btnName = document.createElement('button');
     btnName.setAttribute('id', doc.id);
     btnName.textContent = `${doc.data().name}:  $${doc.data().precio}`;
     divButton.setAttribute('name',doc.data().name);
     divButton.appendChild(btnName);
+    divButton.appendChild(divSabores);
     carta.appendChild(divButton);
 
     btnName.addEventListener('click', () => {
@@ -31,28 +33,11 @@ export default () => {
       if (copiaObj.name === "Hamburguesa simple" || copiaObj.name === "Hamburguesa doble") {
         // alert('jnhn');
         const sabores = doc.data().sabores;
-        pintarSabores()
-        //console.log(sabores); 
-
-      // console.log(doc.data().sabores);
-
-      // const lista = document.createElement("li");
-      // adicional.appendChild(lista);
-      // sabores.forEach(sabor => {
-      //   const adicional = divElemt.querySelector('#adicional');   
-      //   const lista = divElemt.querySelector('#lista');  
-      //   adicional.classList.remove('hide');
-      //   lista.classList.remove('hide');
-
-       
-
-        // const adicional = divElemt.querySelector('#adicional');   
-        // const lista = divElemt.querySelector('#lista');  
-        // adicional.classList.remove('hide');
-        // lista.classList.remove('hide');
-        // lista.textContent = listaS;
-        
+        pintarSabores(sabores, divSabores);
+        funcioncita(divSabores,copiaObj);
+        console.log(copiaObj);
        }
+
      aumentarCantidad(copiaObj,doc.id);
      let areaPedidos = divElemt.querySelector('#area-pedidos');   
      areaPedidos.classList.remove('hide');
