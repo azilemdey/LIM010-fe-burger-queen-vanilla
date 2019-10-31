@@ -1,5 +1,5 @@
 import { getData} from "../functions-controller/firebase-controller.js";
-import { pintarArray} from "../functions-controller/views-controller.js";
+import { pintarArray, pintarSabores} from "../functions-controller/views-controller.js";
 import{aumentarCantidad} from "../functions-controller/funciones.js";
 
 export default () => {
@@ -31,7 +31,8 @@ export default () => {
       if (copiaObj.name === "Hamburguesa simple" || copiaObj.name === "Hamburguesa doble") {
         // alert('jnhn');
         const sabores = doc.data().sabores;
-        console.log(sabores); 
+        pintarSabores()
+        //console.log(sabores); 
 
       // console.log(doc.data().sabores);
 
