@@ -16,9 +16,7 @@ export const crearObjeto = (input, total) => {
   console.log(objOrdenes);
   guardarData('Ordenes', objOrdenes)
   .then(() => {
-  console.log(arrPedidos);
   arrPedidos=[];
-  console.log(arrPedidos);
   })
   .catch(()=> {
   console.log('realiza nuevamente la orden');

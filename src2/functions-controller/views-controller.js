@@ -1,64 +1,66 @@
-import { calcularTotal, crearObjeto, eliminarPedido,arrPedidos } from "../functions-controller/funciones.js";
+import { calcularTotal, crearObjeto, eliminarPedido, arrPedidos } from "../functions-controller/funciones.js";
 
 export const pintarArray = (eleHTML) => {
-    eleHTML.innerHTML = '';
-    const resultado = arrPedidos.reduce((accum, elem, indice) => {
-      return accum + `
+  eleHTML.innerHTML = '';
+  const resultado = arrPedidos.reduce((accum, elem, indice) => {
+    return accum + `
         <tr>
         <td>${elem.name}</td>
         <td>$${elem.precio}</td>
         <td>${elem.cantidad} unidades</td>
         <td><button id="${indice}" name="eliminar">x</button></td>
         </tr>`;
-    }, '')
+  }, '')
 
-    const tabla   = document.createElement("table");
-    tabla.innerHTML =`
+
+  const tabla = document.createElement("table");
+  tabla.innerHTML = `
     <input type="text" id= "nombre" placeholder="Cliente">
     <th>Pedido</th>
     <th>Precio</th>
     <th>Cantidad</th>
      ${resultado} 
      `;
-    eleHTML.appendChild(tabla);
-    tabla.setAttribute('id','tabla-pedidos');
-    
-    const botones = tabla.querySelectorAll(`[name='eliminar']`)
-    botones.forEach((btnDelete) => { btnDelete.addEventListener('click',(event) => {
-        eliminarPedido();
-        pintarArray(eleHTML)
+  eleHTML.appendChild(tabla);
+  tabla.setAttribute('id', 'tabla-pedidos');
+
+  const botones = tabla.querySelectorAll(`[name='eliminar']`)
+  botones.forEach((btnDelete) => {
+    btnDelete.addEventListener('click', (event) => {
+      eliminarPedido();
+      pintarArray(eleHTML)
     });
-    })
-  
-    const divTotal   = document.createElement("div");
-    eleHTML.appendChild(divTotal);
-    const nombreCliente = tabla.querySelector('#nombre');
-      calcularTotal(divTotal);
-   
-    const guardarPedido = document.createElement("button");
-    guardarPedido.textContent = 'OK';
-    eleHTML.appendChild(guardarPedido);
-    guardarPedido.addEventListener('click', () =>{
+  })
+
+  const divTotal = document.createElement("div");
+  eleHTML.appendChild(divTotal);
+  const nombreCliente = tabla.querySelector('#nombre');
+  calcularTotal(divTotal);
+
+  const guardarPedido = document.createElement("button");
+  guardarPedido.textContent = 'OK';
+  eleHTML.appendChild(guardarPedido);
+  guardarPedido.addEventListener('click', () => {
     crearObjeto(nombreCliente, calcularTotal(divTotal));
     eleHTML.innerHTML = '';
   })
-  };
 
-  export const pintarSabores= (arr, eleHTML) => {
-   const saborsito = arr.reduce((accum, sabor) => {
-    return accum + sabor;
-    
-  },"");  
-  
-    const divSabores = document.createElement('div');
-//   const divSabor = document.createElement('div');
-    const botonSabores = document.createElement('button');
+};
 
-    botonSabores.appendChild(divSabor);
-    divSabores.appendChild(eleHTML);
-//   divSabor.appendChild(eleHTML);
+export const pintarSabores = (arr, eleHTML) => {
+  const listas = arr.reduce((accum, sabor) => {
+    return accum +
+      `<button id = ${sabor} name = 'sabores'>${sabor}</button>`
+  }, "");
+  eleHTML.innerHTML=listas;
+};
 
-//   botonSabores.textContent = saborsito;
-botonSabores.innerHTML = `<button>${saborsito}</button>`;
-
-}
+export const funcioncita = (elementito,obj)=>{
+const botonesDeSabores = elementito.querySelectorAll(`[name='sabores']`);
+  botonesDeSabores.forEach((btnSabor) => {
+    btnSabor.addEventListener('click', (event) => {
+const NombreDeSaboresEnId = event.target.id;
+obj.saborElegido= NombreDeSaboresEnId;
+console.log(obj);
+  });
+});
