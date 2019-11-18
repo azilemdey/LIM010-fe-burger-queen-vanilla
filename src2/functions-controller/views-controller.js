@@ -1,5 +1,5 @@
 import { calcularTotal, crearObjeto, eliminarPedido, arrPedidos } from "../functions-controller/funciones.js";
-
+//PEDIDOS
 export const pintarArray = (eleHTML) => {
   eleHTML.innerHTML = '';
   const resultado = arrPedidos.reduce((accum, elem, indice) => {
@@ -62,4 +62,10 @@ obj.saborElegido= NombreDeSaboresEnId;
 console.log(obj);
   });
 });
+};
+
+//ORDENES
+export const pintarOrdenes = (elem,objOrden)=>{
+
+  
 }
