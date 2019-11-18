@@ -10,7 +10,6 @@ export default () => {
 
     const orden = divElemt.querySelector('#orden');
     const ok = divElemt.querySelector('#ok');
-
     getData('Ordenes').then((snapshot) => {
       snapshot.docs.forEach(doc => {
         ok.addEventListener('click',()=>{
