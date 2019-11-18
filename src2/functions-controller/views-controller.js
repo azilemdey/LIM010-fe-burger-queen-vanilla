@@ -12,6 +12,7 @@ export const pintarArray = (eleHTML) => {
         </tr>`;
   }, '')
 
+
   const tabla = document.createElement("table");
   tabla.innerHTML = `
     <input type="text" id= "nombre" placeholder="Cliente">
@@ -43,6 +44,7 @@ export const pintarArray = (eleHTML) => {
     crearObjeto(nombreCliente, calcularTotal(divTotal));
     eleHTML.innerHTML = '';
   })
+
 };
 
 export const pintarSabores = (arr, eleHTML) => {

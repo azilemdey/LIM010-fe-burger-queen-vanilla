@@ -1,5 +1,6 @@
 import { getData} from "../functions-controller/firebase-controller.js";
 import { pintarArray, pintarSabores, funcioncita} from "../functions-controller/views-controller.js";
+
 import{aumentarCantidad} from "../functions-controller/funciones.js";
 
 export default () => {
