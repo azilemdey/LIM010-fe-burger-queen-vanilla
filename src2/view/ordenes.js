@@ -14,9 +14,11 @@ export default () => {
       snapshot.docs.forEach(doc => {
         ok.addEventListener('click',()=>{
           const tablaOrder = document.createElement("table");
-           console.log(doc.data().productos[0]);
           orden.appendChild(tablaOrder);
-          tablaOrder.innerHTML=doc.data().cliente;
+          tablaOrder.innerHTML+= `<p>Cliente: ${doc.data().cliente}</p>`;
+
+        doc.data().productos.forEach( product =>{
+         tablaOrder.innerHTML += `<p>${product.name}<p>`})
 
         })
       
