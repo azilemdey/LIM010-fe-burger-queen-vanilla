@@ -1,5 +1,5 @@
 import { getData} from "../functions-controller/firebase-controller.js";
-import { pintarArray, pintarSabores, funcioncita} from "../functions-controller/views-controller.js";
+import { pintarArray, pintarSabores, añadirPropiedad} from "../functions-controller/views-controller.js";
 
 import{aumentarCantidad} from "../functions-controller/funciones.js";
 
@@ -10,7 +10,8 @@ export default () => {
   const viewAccessories = `
    <h2 class="text-center">PEDIDOS</h2>
   <div><button id= "desayunos">DESAYUNO</button><button id= "btn-menus">ALMUERZO Y CENA</button><div id= "carta"></div>
-  </div><ul class = "hide" id = "adicional"><li id= "lista"></li></ul><input class= "hide" type = "text"><div id= "area-pedidos" class="hide"><div id="precio-total"></div></div>`;
+  </div><div id="modal"></div><ul class = "hide" id = "adicional"><li id= "lista"></li></ul><input class= "hide" type = "text">
+  <div id= "area-pedidos" class="hide"><div id="precio-total"></div></div>`;
   divElemt.innerHTML = viewAccessories;
   const carta = divElemt.querySelector('#carta');
 
@@ -30,13 +31,15 @@ export default () => {
       const copiaObj = Object.assign({}, productoSeleccionado);
       copiaObj.id = doc.id;
       copiaObj.cantidad = 1;
-      
+      console.log(doc.data());
       if (copiaObj.name === "Hamburguesa simple" || copiaObj.name === "Hamburguesa doble") {
         // alert('jnhn');
         const sabores = doc.data().sabores;
         pintarSabores(sabores, divSabores);
-        funcioncita(divSabores,copiaObj);
-        console.log(copiaObj);
+        let modal = divElemt.querySelector('#modal');   
+        añadirPropiedad(divSabores,copiaObj, modal);
+
+
        }
 
      aumentarCantidad(copiaObj,doc.id);

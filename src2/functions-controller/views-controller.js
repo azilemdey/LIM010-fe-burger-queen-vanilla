@@ -55,12 +55,37 @@ export const pintarSabores = (arr, eleHTML) => {
   eleHTML.innerHTML=listas;
 };
 
-export const funcioncita = (elementito,obj)=>{
-const botonesDeSabores = elementito.querySelectorAll(`[name='sabores']`);
-  botonesDeSabores.forEach((btnSabor) => {
+export const añadirPropiedad = (eleHTML ,obj, divModal)=>{
+const btnDeSabores = eleHTML.querySelectorAll(`[name='sabores']`);
+  btnDeSabores.forEach((btnSabor) => {
     btnSabor.addEventListener('click', (event) => {
-const NombreDeSaboresEnId = event.target.id;
-obj.saborElegido= NombreDeSaboresEnId;
-console.log(obj);
+      const NombreDeSaboresEnId = event.target.id;
+      obj.saborElegido= NombreDeSaboresEnId;
+      const templateModal = `<div id="ventana" class ="ventana">
+      <span class="cerrar" id="cerrar">&times;</span>
+      <p class="textModal">¿Desea agregar un adicional por $1?</p>
+      <form>
+      <label><input type="checkbox" id="cbox1" value="huevo"> huevo </label><br>
+      <input type="checkbox" id="cbox2" value="queso"> <label for="cbox2"> queso</label>
+      <button type="submit" id="agregar-adicional">ok</button>
+      </form>
+      </div> `
+      divModal.innerHTML = templateModal;
+
+      divModal.querySelector('#cerrar').addEventListener('click', () => {
+        divModal.querySelector('#ventana').classList.add('hide');
+      })
+
+      const agregarAdicional = divModal.querySelector('#agregar-adicional');
+      agregarAdicional.addEventListener('click', () =>{
+        const adicional1 = divModal.querySelector('#cbox1').checked;
+        const adicional2 = divModal.querySelector('#cbox2').checked;
+
+      })
+   
+      console.log(obj);
   });
 });
+}
+
+
