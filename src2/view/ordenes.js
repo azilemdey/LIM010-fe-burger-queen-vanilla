@@ -2,7 +2,7 @@ import {getData} from "../functions-controller/firebase-controller.js";
 
 export default () => {
     const viewCatalogue = `
-  <h2 class="text-center">ORDENES</h2><div id="orden"><button id="ok">OK</button><div>`;
+  <h2 class="text-center">ORDENES</h2><button id="ok" class="btn-ordenes">VER TODAS LAS ORDENES</button><div id="orden"><div>`;
 
     const divElemt = document.createElement('div');
     divElemt.classList.add('position')
@@ -13,13 +13,12 @@ export default () => {
     getData('Ordenes').then((snapshot) => {
       snapshot.docs.forEach(doc => {
         ok.addEventListener('click',()=>{
-          const tablaOrder = document.createElement("table");
+         const tablaOrder = document.createElement("div");
           orden.appendChild(tablaOrder);
           tablaOrder.innerHTML+= `<p>Cliente: ${doc.data().cliente}</p>`;
-
-        doc.data().productos.forEach( product =>{
+          doc.data().productos.forEach( product =>{
          tablaOrder.innerHTML += `<p>${product.name}<p>`})
-
+        
         })
       
       });
